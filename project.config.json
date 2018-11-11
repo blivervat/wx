@@ -7,10 +7,11 @@
 		"minified": true,
 		"newFeature": true
 	},
-	"miniprogramRoot": "./dist/",
+	"miniprogramRoot": "dist/wx",
+	"qcloudRoot": "server/",
 	"compileType": "miniprogram",
-	"appid": "touristappid",
-	"projectname": "smoke",
+	"appid": "wx28775a474c629569",
+	"projectname": "wx",
 	"condition": {
 		"search": {
 			"current": -1,
