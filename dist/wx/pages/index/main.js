@@ -89,18 +89,82 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   data: function data() {
     return {
-      motto: 'Hello World',
+      current: 'homepage',
       userInfo: {}
     };
   },
 
 
-  methods: {},
+  methods: {
+    handleChange: function handleChange(_ref) {
+      var detail = _ref.detail;
+
+      this.setData({
+        current: detail.key
+      });
+    }
+  },
 
   created: function created() {}
 });
@@ -114,6 +178,8 @@ if (false) {(function () {
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "container"
+  }, [_c('div', {
+    staticClass: "header"
   }, [_c('i-input', {
     attrs: {
       "title": "收货人",
@@ -121,9 +187,148 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
       "placeholder": "名字",
       "mpcomid": '0'
     }
-  })], 1)
+  }), _vm._v(" "), _vm._m(0), _vm._v(" "), _c('i-tab-bar', {
+    attrs: {
+      "bindchange": "handleChange",
+      "mpcomid": '6'
+    }
+  }, [_c('i-tab-bar-item', {
+    key: "homepage",
+    attrs: {
+      "img": "/assets/img/tar.jpg",
+      "title": "细支烟",
+      "mpcomid": '1'
+    }
+  }), _vm._v(" "), _c('i-tab-bar-item', {
+    key: "group",
+    attrs: {
+      "img": "/assets/img/tar.jpg",
+      "title": "短支烟",
+      "mpcomid": '2'
+    }
+  }), _vm._v(" "), _c('i-tab-bar-item', {
+    key: "remind",
+    attrs: {
+      "img": "/assets/img/tar.jpg",
+      "title": "爆珠烟",
+      "mpcomid": '3'
+    }
+  }), _vm._v(" "), _c('i-tab-bar-item', {
+    key: "mine",
+    attrs: {
+      "img": "/assets/img/tar.jpg",
+      "title": "雪茄烟",
+      "mpcomid": '4'
+    }
+  }), _vm._v(" "), _c('i-tab-bar-item', {
+    key: "mine",
+    attrs: {
+      "img": "/assets/img/tar.jpg",
+      "title": "雪茄烟",
+      "mpcomid": '5'
+    }
+  })], 1)], 1), _vm._v(" "), _c('div', {
+    staticClass: "main"
+  }, [_c('i-cell-group', {
+    attrs: {
+      "mpcomid": '8'
+    }
+  }, [_c('i-cell', {
+    attrs: {
+      "title": "新品上市",
+      "value": "查看更多",
+      "is-link": "",
+      "mpcomid": '7'
+    }
+  })], 1), _vm._v(" "), _c('i-row', {
+    attrs: {
+      "mpcomid": '13'
+    }
+  }, [_c('i-col', {
+    attrs: {
+      "span": "6",
+      "i-class": "col-class",
+      "mpcomid": '9'
+    }
+  }, [_c('div', [_c('img', {
+    attrs: {
+      "src": "../../assets/img/smoke.jpg",
+      "alt": ""
+    }
+  })]), _vm._v(" "), _c('span', [_vm._v("芙蓉王(硬细支)")])]), _vm._v(" "), _c('i-col', {
+    attrs: {
+      "span": "6",
+      "i-class": "col-class",
+      "mpcomid": '10'
+    }
+  }, [_c('div', [_c('img', {
+    attrs: {
+      "src": "../../assets/img/smoke.jpg",
+      "alt": ""
+    }
+  })]), _vm._v(" "), _c('span', [_vm._v("芙蓉王(硬细支)")])]), _vm._v(" "), _c('i-col', {
+    attrs: {
+      "span": "6",
+      "i-class": "col-class",
+      "mpcomid": '11'
+    }
+  }, [_c('div', [_c('img', {
+    attrs: {
+      "src": "../../assets/img/smoke.jpg",
+      "alt": ""
+    }
+  })]), _vm._v(" "), _c('span', [_vm._v("芙蓉王(硬细支)")])]), _vm._v(" "), _c('i-col', {
+    attrs: {
+      "span": "6",
+      "i-class": "col-class",
+      "mpcomid": '12'
+    }
+  }, [_c('div', [_c('img', {
+    attrs: {
+      "src": "../../assets/img/smoke.jpg",
+      "alt": ""
+    }
+  })]), _vm._v(" "), _c('span', [_vm._v("芙蓉王(硬细支)")])])], 1), _vm._v(" "), _vm._m(1)], 1), _vm._v(" "), _c('i-panel', {
+    attrs: {
+      "title": "A",
+      "i-class": "show-list-title",
+      "mpcomid": '14'
+    }
+  }, [_c('view', [_c('div', {
+    staticClass: "shop-list"
+  }, [_c('img', {
+    attrs: {
+      "src": "/assets/img/smoke.jpg",
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('span', [_vm._v("555香烟")])]), _vm._v(" "), _c('div', {
+    staticClass: "shop-list"
+  }, [_c('img', {
+    attrs: {
+      "src": "/assets/img/smoke.jpg",
+      "alt": ""
+    }
+  }), _vm._v(" "), _c('span', [_vm._v("555香烟")])])])])], 1)
 }
-var staticRenderFns = []
+var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "banner"
+  }, [_c('img', {
+    attrs: {
+      "src": "../../assets/img/banner.jpg",
+      "alt": ""
+    }
+  })])
+},function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "small_banner"
+  }, [_c('img', {
+    attrs: {
+      "src": "../../assets/img/small_banner.png",
+      "alt": ""
+    }
+  })])
+}]
 render._withStripped = true
 var esExports = { render: render, staticRenderFns: staticRenderFns }
 /* harmony default export */ __webpack_exports__["a"] = (esExports);

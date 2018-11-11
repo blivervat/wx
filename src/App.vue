@@ -12,4 +12,8 @@ export default {
 </script>
 
 <style>
+.container {
+  background-color: #eee;
+}
+/* this rule will be remove */
 </style>
