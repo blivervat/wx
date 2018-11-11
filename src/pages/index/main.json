@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+      "i-button": "../../static/iview/dist/button/index",
+      "i-input": "../../static/iview/dist/input/index"
+    }
+  }

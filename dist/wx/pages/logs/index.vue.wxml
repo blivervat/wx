@@ -1,7 +1,7 @@
-<import src="/components/card.vue.wxml" /><template name="a7a21c4c">
-  <view class="_div data-v-049f1916">
-    <view class="_ul data-v-049f1916 container log-list">
-      <view wx:key="index" key="{{index}}" class="_li data-v-049f1916 log-item {{[aa ? 'red' : '']}}" wx:for="{{logs}}" wx:for-index="index" wx:for-item="log"><template data="{{...$root[$kk+'0-'+index], $root}}" is="64f001bc"></template></view>
+<import src="/components/card.vue.wxml" /><template name="65728b90">
+  <view class="_div data-v-69892e90">
+    <view class="_ul data-v-69892e90 container log-list">
+      <view wx:key="index" key="{{index}}" class="_li data-v-69892e90 log-item {{[aa ? 'red' : '']}}" wx:for="{{logs}}" wx:for-index="index" wx:for-item="log"><template data="{{...$root[$kk+'0-'+index], $root}}" is="67b244ab"></template></view>
     </view>
   </view>
 </template>
