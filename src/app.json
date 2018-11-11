@@ -1,13 +1,26 @@
 {
   "pages": [
     "pages/index/main",
-    "pages/logs/main",
-    "pages/counter/main"
+    "pages/me/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#4e8fff",
+    "navigationBarTitleText": "烟品库",
+    "navigationBarTextStyle": "light"
+  },
+  "tabBar": {
+    "selectedColor": "#4e8fff",
+    "list": [{
+      "pagePath": "pages/index/main",
+      "iconPath": "assets/img/yan.png",
+      "selectedIconPath": "assets/img/yan-light.png",
+      "text": "烟品库"
+    }, {
+      "pagePath": "pages/me/main",
+      "iconPath": "assets/img/wd.png",
+      "selectedIconPath": "assets/img/wd-light.png",
+      "text": "我的"
+    }]
   }
 }

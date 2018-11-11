@@ -7,6 +7,3 @@
 .log-item {
   margin: 10rpx;
 }
-.card {
-  padding: 20rpx;
-}

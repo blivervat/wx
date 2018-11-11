@@ -1,3 +1,4 @@
+import config from '../config'
 function formatNumber (n) {
   const str = n.toString()
   return str[1] ? str : `0${str}`
@@ -18,7 +19,28 @@ export function formatTime (date) {
   return `${t1} ${t2}`
 }
 
+// 封装get请求
+export function get (url, data) {
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: config.host + url,
+      data: data,
+      header: {'content-type': 'application/json'},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: (res) => {
+        if (res.data.code === 0) {
+          resolve(res.data.data)
+        } else {
+          reject(res.data.data)
+        }
+      }
+    })
+  })
+}
 export default {
   formatNumber,
-  formatTime
+  formatTime,
+  get
 }
