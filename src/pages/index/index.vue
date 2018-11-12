@@ -19,7 +19,7 @@
     </i-cell-group>
     <i-row>
       <i-col span="6" i-class="col-class">
-        <div><img src="../../assets/img/smoke.jpg" alt=""></div>
+        <div><a href="/pages/detail/main"><img src="../../assets/img/smoke.jpg" alt=""></a></div>
         <span>芙蓉王(硬细支)</span>
       </i-col>
       <i-col span="6" i-class="col-class">

@@ -1,11 +1,11 @@
 <script>
-import {get} from './utils/index.js'
+// import { get } from './utils/index.js';
+// import config from './config'
+// import qcloud from 'wafer2-client-sdk'
+
 export default {
-  async created () {
-    const res = await get('weapp/demo')
-    console.log(res)
-    console.log('小程序启动了')
-  }
+  async created () {},
+  methods: {}
 }
 </script>
 
