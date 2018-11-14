@@ -2,7 +2,7 @@
     <div class="panel">
         <div class="panel_header">
             <h3 class="title">
-                <!-- <img :src="url" alt=""> -->
+                <img v-if="url" :src="url" alt="">
                 <!-- <slot name="icon"></slot> -->
                 {{title}}
             </h3>
@@ -23,6 +23,8 @@ export default {
 </script>
 <style lang="less" scoped>
 .panel {
+  background-color: #fff;
+  margin-bottom: 20rpx;
   &_header {
     .title {
       padding: 30rpx 16rpx;

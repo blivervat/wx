@@ -2,6 +2,11 @@
   "navigationBarTitleText": "商品详情",
   "usingComponents": {
     "i-rate": "../../static/iview/dist/rate/index",
-    "i-tag": "../../static/iview/dist/tag/index"
+    "i-tag": "../../static/iview/dist/tag/index",
+    "i-progress": "../../static/iview/dist/progress/index",
+    "i-row": "../../static/iview/dist/row/index",
+    "i-col": "../../static/iview/dist/col/index",
+    "i-avatar": "../../static/iview/dist/avatar/index",
+    "i-icon": "../../static/iview/dist/icon/index"
   }
 }
