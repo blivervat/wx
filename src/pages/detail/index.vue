@@ -1,39 +1,42 @@
 <template>
-    <div>
-        <Card :list="dataList"></Card>
+    <div class="detail">
+        <div class="detail-info"></div>
+        <Panel title="产品规格">
+            <div slot="footer">123</div>
+            <!-- <img src="../../assets/img/icon-yan.png" alt="" slot="icon"> -->
+        </Panel>
+
     </div>
 </template>
 <script>
-    import Card from '@/components/card'
-
-    export default {
-        components: {
-            Card
-        },
-        data() {
-            return {
-                dataList: []
-            }
-        },
-        created () {
-            this.getData()
-        },
-        methods: {
-            getData() {
-                for(var i = 0; i < 5; i++) {
-                    this.dataList.push({
-                        id: i + 1,
-                        title: '七匹狼' + i,
-                        price: Math.floor(Math.random() * 50) + '.00',
-                        score:  Math.floor(Math.random() * 6),
-                        evaluateCount: Math.floor(Math.random() * 21),
-                        src: '../../assets/img/smoke.jpg'
-                    })
-                }
-                console.log( this.dataList)
-            }
-        }
+import Panel from '@/components/panel'
+export default {
+  components: {
+    Panel
+  },
+  data () {
+    return {
+      dataList: {}
     }
-
-
+  },
+  created () {
+    this.getData()
+  },
+  methods: {
+    getData () {
+      for (var i = 0; i < 5; i++) {
+        this.dataList = {
+          info: {
+            title: '贵烟',
+            score: 4,
+            price: 23,
+            evaluateCount: 36,
+            like: true
+          }
+        }
+      }
+      console.log(this.dataList)
+    }
+  }
+}
 </script>

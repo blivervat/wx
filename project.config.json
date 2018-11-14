@@ -2,16 +2,18 @@
 	"description": "项目配置文件。",
 	"setting": {
 		"urlCheck": false,
-		"es6": false,
+		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"nodeModules": true
 	},
 	"miniprogramRoot": "dist/wx/",
 	"qcloudRoot": "server/",
 	"compileType": "miniprogram",
 	"appid": "wx28775a474c629569",
 	"projectname": "wx",
+	"libVersion": "2.4.0",
 	"condition": {
 		"search": {
 			"current": -1,
