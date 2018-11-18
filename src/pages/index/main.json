@@ -8,6 +8,7 @@
       "i-cell": "../../static/iview/dist/cell/index",
       "i-row": "../../static/iview/dist/row/index",
       "i-col": "../../static/iview/dist/col/index",
-      "i-panel": "../../static/iview/dist/panel/index"
+      "i-panel": "../../static/iview/dist/panel/index",
+      "i-icon": "../../static/iview/dist/icon/index"
     }
   }

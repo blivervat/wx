@@ -1,9 +1,11 @@
 {
   "pages": [
+    "pages/search_list/main",
     "pages/index/main",
     "pages/detail/main",
     "pages/me/main",
-    "pages/shop_list/main"
+    "pages/shop_list/main",
+    "pages/new_list/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="header">
-      <i-input  title="收货人" autofocus placeholder="名字" />
+      <search-input url="/pages/search_list/main"></search-input>
       <div class="banner">
           <img src="../../assets/img/banner.jpg" alt="">
       </div>
@@ -16,7 +16,7 @@
   </div>
   <div class="main">
     <i-cell-group>
-        <i-cell title="新品上市" value="查看更多" is-link></i-cell>
+        <i-cell title="新品上市" value="查看更多" is-link url="/pages/new_list/main"></i-cell>
     </i-cell-group>
     <i-row>
       <i-col span="6" i-class="col-class" v-for="(item, index) in newList" :key="index">
@@ -49,14 +49,18 @@
 </template>
 
 <script>
+import SearchInput from '@/components/serach_inp'
 
 export default {
+  components: {
+    SearchInput
+  },
   data () {
     return {
       current: 'homepage',
       navBar: [
         {
-          url: '/assets/img/tar.jpg',
+          url: '/assets/img/xi.png',
           title: '细支烟'
         },
         {
@@ -64,15 +68,15 @@ export default {
           title: '短支烟'
         },
         {
-          url: '../../assets/img/tar.jpg',
+          url: '../../assets/img/baozhu.png',
           title: '珠爆烟'
         },
         {
-          url: '../../assets/img/tar.jpg',
+          url: '../../assets/img/xuejia.png',
           title: '雪茄烟'
         },
         {
-          url: '../../assets/img/tar.jpg',
+          url: '../../assets/img/xiqing.png',
           title: '喜庆用烟'
         }
       ],
