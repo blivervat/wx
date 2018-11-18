@@ -29,7 +29,7 @@
             <div slot="footer">
               <div class="spec-box">
                 <div class="left">
-                  <span>品牌： {{spec.name}}</span>
+                  <span>品牌：{{spec.name}}</span>
                   <span>产品类型： {{spec.type}}</span>
                   <span>一氧化碳： {{spec.co}}</span>
                 </div>
@@ -108,7 +108,8 @@
               </div>
             </div>
         </Panel>
-
+        <!-- 固定在底部的按钮 -->
+        <i-button i-class="fixed-bottom" bind:click="handleClick" type="info" long="true">评论</i-button>
     </div>
 </template>
 <script>
@@ -235,6 +236,7 @@ export default {
     }
     .talk {
       display: flex;
+      margin-bottom: 80rpx;
       .content {
         font-size: 28rpx;
         padding-left: 20rpx;
@@ -261,6 +263,11 @@ export default {
         }
       }
     }
+    .fixed-bottom {
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
   }
-
+  
 </style>

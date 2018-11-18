@@ -5,34 +5,22 @@
       <div class="banner">
           <img src="../../assets/img/banner.jpg" alt="">
       </div>
-      <i-tab-bar  bindchange="handleChange" >
-          <i-tab-bar-item key="homepage" img="/assets/img/tar.jpg"  title="细支烟"></i-tab-bar-item>
-          <i-tab-bar-item key="group" img="/assets/img/tar.jpg"  title="短支烟"></i-tab-bar-item>
-          <i-tab-bar-item key="remind" img="/assets/img/tar.jpg" title="爆珠烟"></i-tab-bar-item>
-          <i-tab-bar-item key="mine" img="/assets/img/tar.jpg" title="雪茄烟"></i-tab-bar-item>
-        <i-tab-bar-item key="mine" img="/assets/img/tar.jpg" title="雪茄烟"></i-tab-bar-item>
-      </i-tab-bar>
+      <ul class="table-bar">
+        <li v-for="item in navBar" :key="item.title">
+          <a href="/pages/shop_list/main">
+            <img :src="item.url" alt=""><br />
+            <span>{{item.title}}</span>
+          </a>
+        </li>
+      </ul>
   </div>
   <div class="main">
     <i-cell-group>
         <i-cell title="新品上市" value="查看更多" is-link></i-cell>
     </i-cell-group>
     <i-row>
-      <i-col span="6" i-class="col-class">
+      <i-col span="6" i-class="col-class" v-for="(item, index) in newList" :key="index">
         <div><a href="/pages/detail/main"><img src="../../assets/img/smoke.jpg" alt=""></a></div>
-        <span>芙蓉王(硬细支)</span>
-      </i-col>
-      <i-col span="6" i-class="col-class">
-        <div><img src="../../assets/img/smoke.jpg" alt=""></div>
-        <span>芙蓉王(硬细支)</span>
-        
-      </i-col>
-      <i-col span="6" i-class="col-class">
-        <div><img src="../../assets/img/smoke.jpg" alt=""></div>
-        <span>芙蓉王(硬细支)</span>
-      </i-col>
-      <i-col span="6" i-class="col-class">
-        <div><img src="../../assets/img/smoke.jpg" alt=""></div>
         <span>芙蓉王(硬细支)</span>
       </i-col>
     </i-row>
@@ -66,6 +54,30 @@ export default {
   data () {
     return {
       current: 'homepage',
+      navBar: [
+        {
+          url: '/assets/img/tar.jpg',
+          title: '细支烟'
+        },
+        {
+          url: '../../assets/img/tar.jpg',
+          title: '短支烟'
+        },
+        {
+          url: '../../assets/img/tar.jpg',
+          title: '珠爆烟'
+        },
+        {
+          url: '../../assets/img/tar.jpg',
+          title: '雪茄烟'
+        },
+        {
+          url: '../../assets/img/tar.jpg',
+          title: '喜庆用烟'
+        }
+      ],
+      // 新品上市
+      newList: [],
       userInfo: {}
     }
   },
@@ -75,10 +87,19 @@ export default {
       this.setData({
         current: detail.key
       })
+    },
+    getNewList () {
+      const arr = new Array(4)
+      arr.fill({
+        url: '../../assets/img/smoke.jpg',
+        title: '芙蓉王(硬细支)'
+      })
+      this.newList = arr
     }
   },
-
-  created () {}
+  created () {
+    this.getNewList()
+  }
 }
 </script>
 
@@ -86,6 +107,20 @@ export default {
   .header {
     padding:0 16rpx;
     background-color: #fff;
+    .table-bar {
+      display: flex;
+      justify-content: space-around;
+      li {
+        text-align: center;
+        img {
+          width: 107rpx;
+          height: 104rpx;
+        }
+        span {
+          font-size: 28rpx;
+        }
+      }
+    }
   }
   .main {
     margin-top: 20rpx;

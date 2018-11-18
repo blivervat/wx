@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "商品详情",
+  "navigationBarTitleText": "商品列表",
   "usingComponents": {
     "i-rate": "../../static/iview/dist/rate/index",
     "i-tag": "../../static/iview/dist/tag/index"
