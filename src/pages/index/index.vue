@@ -1,18 +1,21 @@
 <template>
   <div class="container">
-    <div class="header" style=" background-image: url(/assets/img/bg.png);">
-      <search-input url="/pages/search_list/main"></search-input>
-      <div class="banner">
-          <img src="../../assets/img/banner.jpg" alt="">
+    <div class="header">
+      <img src="/assets/img/bg.png" alt="" class="bg-image">
+      <div class="show-contents">
+        <search-input url="/pages/search_list/main"></search-input>
+        <div class="banner">
+            <img src="../../assets/img/banner.jpg" alt="">
+        </div>
+        <ul class="table-bar">
+          <li v-for="item in navBar" :key="item.title">
+            <a href="/pages/shop_list/main">
+              <img :src="item.url" alt=""><br />
+              <span>{{item.title}}</span>
+            </a>
+          </li>
+        </ul>
       </div>
-      <ul class="table-bar">
-        <li v-for="item in navBar" :key="item.title">
-          <a href="/pages/shop_list/main">
-            <img :src="item.url" alt=""><br />
-            <span>{{item.title}}</span>
-          </a>
-        </li>
-      </ul>
   </div>
   <div class="main">
     <i-cell-group>
@@ -112,8 +115,22 @@ export default {
   .header {
     padding: 20rpx @padding;
     background-color: #fff;
-    background-size: 750rpx 360rpx;
-    background-repeat: no-repeat;
+    // 微信小程序无法使用背景图片
+    // background-size: 750rpx 360rpx;
+    // background-repeat: no-repeat;
+    // background-image: url(/assets/img/bg.png);
+    .bg-image {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 750rpx;
+      height: 360rpx;
+    }
+    .show-contents {
+      // 给一个层级,解决背景图片问题
+      position: relative;
+      z-index: 2;
+    }
     .table-bar {
       display: flex;
       justify-content: space-around;
