@@ -15,8 +15,9 @@ export default {
       dataList: []
     }
   },
-  beforeMount (option) {
-    console.log(1)
+  onLoad: function (option) {
+    // 获取传递值
+    console.log(option.value)
     this.getData()
   },
   methods: {
