@@ -3,9 +3,9 @@
 
        <i-icon type="search" size="28" />
        <a :href="url" v-if="url">
-          <input type="text" placeholder="搜索烟名/品牌">
+          <input type="text" placeholder="搜索烟名/品牌" v-model="searchValue">
        </a>
-       <input v-else type="text" placeholder="搜索烟名/品牌">
+       <input v-else type="text" placeholder="搜索烟名/品牌" v-model="searchValue">
        <slot>
           <i-icon type="scan" size="28" @click="sao" />
        </slot>
@@ -14,6 +14,11 @@
 <script>
 export default {
   props: ['url'],
+  data () {
+    return {
+      searchValue: ''
+    }
+  },
   methods: {
     sao () {
       wx.scanCode({
@@ -36,7 +41,8 @@ export default {
     font-size: 28rpx;
   }
   input {
-    height: 100%;
+    height: 60rpx;
+    line-height: 60rpx;
   }
 }
 </style>

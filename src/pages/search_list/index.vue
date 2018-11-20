@@ -1,7 +1,7 @@
 <template>
   <div class="search-page">
     <div class="header">
-      <search-input>
+      <search-input ref="search">
         <i-button @click="search" i-class="cha-button__search" type="info" inline>搜索</i-button>
       </search-input>
     </div>
@@ -40,8 +40,13 @@
     },
     methods: {
       // 查询内容
-      search() {
-
+      search () {
+        let value = this.$refs.search.searchValue
+        if (value !== '') {
+          wx.navigateTo({
+            url: '../shop_list/main?value=' + value
+          })
+        }
       },
       getList () {
         this.newList = [

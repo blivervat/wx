@@ -15,7 +15,8 @@ export default {
       dataList: []
     }
   },
-  created () {
+  beforeMount (option) {
+    console.log(1)
     this.getData()
   },
   methods: {
