@@ -26,87 +26,64 @@
           </div>
         </div>
         <Panel title="产品规格" url="../../assets/img/icon-yan.png">
-            <div slot="footer">
-              <div class="spec-box">
-                <div class="left">
-                  <span>品牌：{{spec.name}}</span>
-                  <span>产品类型： {{spec.type}}</span>
-                  <span>一氧化碳： {{spec.co}}</span>
-                </div>
-                <div class="right">
-                  <span>工业公司： {{spec.compamy}}</span>
-                  <span>焦油含量： {{spec.tar}}</span>
-                  <span>规格： {{spec.spec}}</span>
-                </div>
-              </div>
-              <div>
-                <p>小盒条形码： {{spec.smallBarCode}}</p>
-                <p>条包装条形码：{{spec.barCode}}</p>
-              </div>
+          <div class="spec-box">
+            <div class="left">
+              <span>品牌：{{spec.name}}</span>
+              <span>产品类型： {{spec.type}}</span>
+              <span>一氧化碳： {{spec.co}}</span>
             </div>
+            <div class="right">
+              <span>工业公司： {{spec.compamy}}</span>
+              <span>焦油含量： {{spec.tar}}</span>
+              <span>规格： {{spec.spec}}</span>
+            </div>
+          </div>
+          <div>
+            <p>小盒条形码： {{spec.smallBarCode}}</p>
+            <p>条包装条形码：{{spec.barCode}}</p>
+          </div>
             <!-- <img src="../../assets/img/icon-yan.png" alt="" slot="icon"> -->
         </Panel>
         <Panel title="烟龄结构" url="../../assets/img/icon-yan.png">
-            <div slot="footer">
-              <i-row>
-                  <i-col  i-class="framework" span="4">1-5年</i-col>
-                  <i-col  i-class="framework" span="9"><i-progress percent="25"></i-progress></i-col>
-                  <i-col  i-class="framework" span="3">口味</i-col>
-                  <i-col  i-class="framework" span="8"> <i-rate value="4" size="14">4</i-rate></i-col>
-              </i-row>
-               <i-row>
-                  <i-col  i-class="framework" span="4">5-10年</i-col>
-                  <i-col  i-class="framework" span="9"><i-progress percent="48"></i-progress></i-col>
-                  <i-col  i-class="framework" span="3">外观</i-col>
-                  <i-col  i-class="framework" span="8"> <i-rate value="4" size="14">4</i-rate></i-col>
-              </i-row>
-               <i-row>
-                  <i-col  i-class="framework" span="4">10-20年</i-col>
+              <i-row v-for="item in jiegou" :key="item.year">
+                  <i-col  i-class="framework" span="4"><i-tag :name="item.year" color="#fff" i-class="no-border">{{item.year}}</i-tag></i-col>
                   <i-col  i-class="framework" span="9">
-                    <i-progress percent="0"></i-progress>
-                    </i-col>
-                  <i-col  i-class="framework" span="3">性价比</i-col>
-                  <i-col  i-class="framework" span="8">
-                    <i-rate value="4" size="14">4</i-rate>
+                    <i-progress :percent="item.percent"></i-progress>
+                  </i-col>
+                  <i-col  i-class="framework" span="3" v-if="item.rewords"><i-tag :name="item.rewords" color="#fff" i-class="no-border">{{item.rewords}}</i-tag></i-col>
+                  <i-col  i-class="framework" span="8" v-if="item.score">
+                      <i-rate :value="item.score" size="14">{{item.score}}</i-rate>
                   </i-col>
               </i-row>
-               <i-row>
-                  <i-col  i-class="framework" span="4">20年以上</i-col>
-                  <i-col  i-class="framework" span="9"><i-progress percent="26"></i-progress></i-col>
-                  
-              </i-row>
-            </div>
             <!-- <img src="../../assets/img/icon-yan.png" alt="" slot="icon"> -->
         </Panel>
         <Panel title="评论" url="../../assets/img/icon-yan.png">
-            <div slot="footer">
-              <div class="talk">
-                <div class="avatar">
-                  <i-avatar>梁</i-avatar>
-                </div>
-                <div class="content">
-                  <div class="head">
-                    <span class="name">玉兰</span>
-                    <i-tag 
-                        class="i-tags"
-                        name="烟龄：24年"
-                        color="blue">
-                        烟龄：24年
-                    </i-tag>
-                  </div>
-                  <div class="main">
-                     <i-rate value="4" size="14">4</i-rate>
-                     <p>这款烟外观精美，高端大气，口感纯正，清香迷人，抽一根久久回味无穷。</p>
-                     <p class="date">2018-11-04 08:52:20 
-                        <span class="bang">
-                          <span class="count">2</span>
-                          <i-icon type="praise_fill" />
-                        </span>
-                      </p>
-                  </div>
-                </div>
+          <div class="talk">
+            <div class="avatar">
+              <i-avatar>梁</i-avatar>
+            </div>
+            <div class="content">
+              <div class="head">
+                <span class="name">玉兰</span>
+                <i-tag 
+                    class="i-tags"
+                    name="烟龄：24年"
+                    color="blue">
+                    烟龄：24年
+                </i-tag>
+              </div>
+              <div class="main">
+                  <i-rate value="4" size="14">4</i-rate>
+                  <p>这款烟外观精美，高端大气，口感纯正，清香迷人，抽一根久久回味无穷。</p>
+                  <p class="date">2018-11-04 08:52:20 
+                    <span class="bang">
+                      <span class="count">2</span>
+                      <i-icon type="praise_fill" />
+                    </span>
+                  </p>
               </div>
             </div>
+          </div>
         </Panel>
         <!-- 固定在底部的按钮 -->
         <i-button i-class="fixed-bottom" bind:click="handleClick" type="info" long="true">评论</i-button>
@@ -123,7 +100,31 @@ export default {
       // 基本信息
       info: {},
       // 规格
-      spec: {}
+      spec: {},
+      jiegou: [
+        {
+          year: '1-5年',
+          percent: 25,
+          rewords: '口味',
+          score: 5
+        },
+        {
+          year: '5-10年',
+          percent: 48,
+          rewords: '口味',
+          score: 3
+        },
+        {
+          year: '10-20年',
+          percent: 24,
+          rewords: '口味',
+          score: 4
+        },
+        {
+          year: '20年以上',
+          percent: 3
+        }
+      ]
     }
   },
   created () {
@@ -229,6 +230,10 @@ export default {
 </style>
 <style lang="less">
   .detail { 
+    // 去除边框
+    .no-border{
+      border: none;
+    }
     .framework {
       font-size: 28rpx;
       line-height: 50rpx;
