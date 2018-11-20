@@ -2,7 +2,7 @@
   <div class="search-page">
     <div class="header">
       <search-input ref="search">
-        <i-button @click="search" i-class="cha-button__search" type="info" inline>搜索</i-button>
+        <i-button @click="search" shape="circle" i-class="cha-button__search" type="info" inline>搜索</i-button>
       </search-input>
     </div>
     <div class="tags">
@@ -19,6 +19,11 @@
     </div>
     <div class="history">
       <h3>历史记录</h3>
+      <ul class="show-history">
+        <li v-for="item in historyList" :key="item" @click="historyToSearch(item)">
+          {{item}}
+        </li>
+      </ul>
     </div>
   </div>
 
@@ -29,24 +34,51 @@
     props: ['url'],
     data () {
       return {
-        newList: []
+        newList: [],
+        historyList: []
       }
     },
     components: {
       SearchInput
     },
-    created () {
+    onLoad () {
       this.getList()
+    },
+    onShow () {
+      this.getHistory()
     },
     methods: {
       // 查询内容
       search () {
         let value = this.$refs.search.searchValue
         if (value !== '') {
-          wx.navigateTo({
-            url: '../shop_list/main?value=' + value
+          const _history = new Set(this.historyList)
+          _history.add(value)
+          wx.setStorage({
+            key: 'history',
+            data: JSON.stringify([..._history])
           })
+          this.historyToSearch(value)
+          // wx.navigateTo({
+          //   url: '../shop_list/main?value=' + value
+          // })
         }
+      },
+      // 通过历史记录查询
+      historyToSearch (val) {
+        wx.navigateTo({
+          url: '../shop_list/main?value=' + val
+        })
+      },
+      getHistory () {
+        const _this = this
+        wx.getStorage({
+          key: 'history',
+          success ({data}) {
+            // 有数据就会执行
+            _this.historyList = JSON.parse(data)
+          }
+        })
       },
       getList () {
         this.newList = [
@@ -118,6 +150,15 @@
       h3 {
         font-size: @fontSize; 
       }
+      .show-history {
+        font-size: @fontSize; 
+        color: #999;
+        line-height: 2.5;
+        li {
+          padding-left: 20rpx;
+          border-bottom: 1px solid @themColor;
+        }
+      }
     }
   }
 </style>
@@ -132,7 +173,7 @@
     line-height: 48rpx;
     font-size: 24rpx;
     margin: 0;
-    border-radius: 40rpx;
+    box-shadow: none;
   }
 }
 </style>

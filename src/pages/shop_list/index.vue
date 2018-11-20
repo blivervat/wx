@@ -22,6 +22,7 @@ export default {
   },
   methods: {
     getData () {
+      this.dataList = []
       for (var i = 0; i < 5; i++) {
         this.dataList.push({
           id: i + 1,
