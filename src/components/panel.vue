@@ -9,7 +9,7 @@
         </div>
          
         <div class="panel_body">
-            <slot name="footer"></slot>
+            <slot></slot>
         </div>
     </div>
 </template>
