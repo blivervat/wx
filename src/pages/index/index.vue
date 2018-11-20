@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="header">
+    <div class="header" style=" background-image: url(/assets/img/bg.png);">
       <search-input url="/pages/search_list/main"></search-input>
       <div class="banner">
           <img src="../../assets/img/banner.jpg" alt="">
@@ -108,9 +108,12 @@ export default {
 </script>
 
 <style lang="less" scoped>
+  @padding: 32rpx;
   .header {
-    padding:0 16rpx;
+    padding: 20rpx @padding;
     background-color: #fff;
+    background-size: 750rpx 360rpx;
+    background-repeat: no-repeat;
     .table-bar {
       display: flex;
       justify-content: space-around;
@@ -128,12 +131,16 @@ export default {
   }
   .main {
     margin-top: 20rpx;
-    padding:0 16rpx;
+    padding:0 @padding;
     background-color: #fff;
   }
-  .banner img{
-    width: 718rpx;
-    height: 308rpx;
+  .banner {
+    margin-top: 30rpx;
+    img{
+      width: 750rpx - 2 * @padding;
+      max-height: 308rpx;
+      border-radius: 20rpx;
+    }
   }
   .col-class {
     span {
@@ -148,7 +155,7 @@ export default {
   .small_banner {
     margin: 60rpx 0 0;
     img {
-      width: 718rpx;
+      width: 750rpx - 2 * @padding;
       height: 165rpx;
 
     }
@@ -157,7 +164,7 @@ export default {
   .shop-list {
     display: flex;
     align-items: center;
-    padding: 30rpx 16rpx;
+    padding: 30rpx @padding;
     border-bottom: 1px solid #eee;
     img {
       width: 100rpx;

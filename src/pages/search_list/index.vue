@@ -1,7 +1,9 @@
 <template>
   <div class="search-page">
     <div class="header">
-      <search-input url="/pages/search_list/main"></search-input>
+      <search-input>
+        <i-button @click="search" i-class="cha-button__search" type="info" inline>搜索</i-button>
+      </search-input>
     </div>
     <div class="tags">
       <h3>热门标签</h3>
@@ -24,6 +26,7 @@
 <script>
   import SearchInput from '@/components/serach_inp'
   export default {
+    props: ['url'],
     data () {
       return {
         newList: []
@@ -36,6 +39,10 @@
       this.getList()
     },
     methods: {
+      // 查询内容
+      search() {
+
+      },
       getList () {
         this.newList = [
           {
@@ -76,36 +83,52 @@
   }
 </script>
 <style lang="less" scoped>
-  @padding: 18rpx;
+  @padding: 36rpx;
   @fontSize: 28rpx;
   @themColor: #eee;
   .search-page {
-    padding: @padding;
-  }
-  .header {
-    background-color: @themColor;
-  }
-  .tags{
-    margin-bottom: 20rpx;
-    h3 {
-      font-size: @fontSize;
-      margin-bottom: 20rpx;
-    }
-    .cha-tag {
-      font-size: 24rpx;
-      border-radius: 40rpx;
-      padding: 10rpx;
-      text-align: center;
-      margin-right: 20rpx;
+    .header {
+      padding: 20rpx @padding;
       background-color: @themColor;
-      margin-bottom: 30rpx;
     }
-  }
-  .history {
-    h3 {
-      font-size: @fontSize; 
+    .tags{
+      padding: 20rpx @padding;
+      h3 {
+        font-size: @fontSize;
+        margin-bottom: 20rpx;
+      }
+      .cha-tag {
+        font-size: 24rpx;
+        border-radius: 40rpx;
+        padding: 10rpx;
+        text-align: center;
+        margin-right: 20rpx;
+        background-color: @themColor;
+        color: darken(@themColor, 40%);
+        margin-bottom: 30rpx;
+      }
+    }
+    .history {
+      padding: 0 @padding;
+      h3 {
+        font-size: @fontSize; 
+      }
     }
   }
 </style>
 
+<style lang="less">
+.header {
+  .serach-inp {
+    border-radius: 40rpx;
+  }
+  .cha-button__search {
+    height: 48rpx;
+    line-height: 48rpx;
+    font-size: 24rpx;
+    margin: 0;
+    border-radius: 40rpx;
+  }
+}
+</style>
 

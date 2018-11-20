@@ -11,7 +11,7 @@
 	"miniprogramRoot": "dist/wx/",
 	"qcloudRoot": "server/",
 	"compileType": "miniprogram",
-	"appid": "wx28775a474c629569",
+	"appid": "wx55d84d2c4e1b2cb9",
 	"projectname": "wx",
 	"libVersion": "2.4.0",
 	"condition": {
@@ -23,13 +23,23 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "search",
+					"pathName": "pages/search_list/main"
+				}
+			]
 		}
 	}
 }

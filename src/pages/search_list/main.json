@@ -4,6 +4,7 @@
     "i-row": "../../static/iview/dist/row/index",
     "i-col": "../../static/iview/dist/col/index",
     "i-tag": "../../static/iview/dist/tag/index",
+    "i-button": "../../static/iview/dist/button/index",
     "i-icon": "../../static/iview/dist/icon/index"
   }
 }
