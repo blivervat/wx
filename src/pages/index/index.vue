@@ -1,53 +1,53 @@
 <template>
   <div class="container">
-    <div class="header">
-      <img src="/assets/img/bg.png" alt="" class="bg-image">
-      <div class="show-contents">
-        <search-input url="/pages/search_list/main"></search-input>
-        <div class="banner">
-            <img src="../../assets/img/banner.jpg" alt="">
+    <scroll-view :scroll-into-view="toShow" scroll-y   @scroll="scroll" class="scroll-box">
+      <div class="header">
+        <img src="/assets/img/bg.png" alt="" class="bg-image">
+        <div class="show-contents">
+          <search-input url="/pages/search_list/main"></search-input>
+          <div class="banner">
+              <img src="../../assets/img/banner.jpg" alt="">
+          </div>
+          <ul class="table-bar">
+            <li v-for="item in navBar" :key="item.title">
+              <a href="/pages/shop_list/main">
+                <img :src="item.url" alt=""><br />
+                <span>{{item.title}}</span>
+              </a>
+            </li>
+          </ul>
         </div>
-        <ul class="table-bar">
-          <li v-for="item in navBar" :key="item.title">
-            <a href="/pages/shop_list/main">
-              <img :src="item.url" alt=""><br />
-              <span>{{item.title}}</span>
-            </a>
-          </li>
-        </ul>
       </div>
-  </div>
-  <div class="main">
-    <i-cell-group>
-        <i-cell title="新品上市" value="查看更多" is-link url="/pages/new_list/main"></i-cell>
-    </i-cell-group>
-    <i-row>
-      <i-col span="6" i-class="col-class" v-for="(item, index) in newList" :key="index">
-        <div><a href="/pages/detail/main"><img src="../../assets/img/smoke.jpg" alt=""></a></div>
-        <span>芙蓉王(硬细支)</span>
-      </i-col>
-    </i-row>
+      <div class="main">
+        <i-cell-group>
+            <i-cell title="新品上市" value="查看更多" is-link url="/pages/new_list/main"></i-cell>
+        </i-cell-group>
+        <i-row>
+          <i-col span="6" i-class="col-class" v-for="(item, index) in newList" :key="index">
+            <div><a href="/pages/detail/main"><img src="../../assets/img/smoke.jpg" alt=""></a></div>
+            <span>芙蓉王(硬细支)</span>
+          </i-col>
+        </i-row>
 
-    <div class="small_banner">
-        <img src="../../assets/img/small_banner.png" alt="">
-    </div>
-
-  </div>
-
-  <i-panel title="A" i-class="show-list-title">
-    <view>
-        <div class="shop-list">
-          <img src="/assets/img/smoke.jpg" alt="">
-          <span>555香烟</span>
+        <div class="small_banner">
+            <img src="../../assets/img/small_banner.png" alt="">
         </div>
-         <div class="shop-list">
-          <img src="/assets/img/smoke.jpg" alt="">
-          <span>555香烟</span>
-        </div>
-    </view>
-  </i-panel>
 
-
+      </div>
+      <div class="navagitor" ref="navagitor">
+        <ul class="navagitor-menu" v-show="navagitorShow">
+          <li  v-for="item in allList" :key="item.title" @click="toShow=item.title">{{item.title}}</li>
+        </ul>
+        <i-panel v-for="item in allList" :key="item.title" :id="item.title" :title="item.title">
+          <view>
+              <div class="shop-list" v-for="(shop, sIndex) in item.list" :key="sIndex">
+                <img src="/assets/img/smoke.jpg" alt="">
+                <span>{{shop.title}}</span>
+              </div>
+          </view>
+        </i-panel>
+      </div>
+    </scroll-view>
   </div>
 </template>
 
@@ -61,6 +61,9 @@ export default {
   data () {
     return {
       current: 'homepage',
+      navagitorShow: false,
+      // 滚动到指定的位置
+      toShow: '',
       navBar: [
         {
           url: '/assets/img/xi.png',
@@ -85,7 +88,70 @@ export default {
       ],
       // 新品上市
       newList: [],
-      userInfo: {}
+      userInfo: {},
+      // 所有烟品
+      allList: [
+        {
+          title: 'A',
+          list: [
+            {
+              id: 1,
+              title: '阿里山',
+              src: ''
+            },
+            {
+              id: 2,
+              title: '爱喜',
+              src: ''
+            }
+          ]
+        },
+        {
+          title: 'B',
+          list: [
+            {
+              id: 3,
+              title: '白沙',
+              src: ''
+            }
+          ]
+        },
+        {
+          title: 'C',
+          list: [
+            {
+              id: 4,
+              title: '长城',
+              src: ''
+            },
+            {
+              id: 5,
+              title: '长白山',
+              src: ''
+            }
+          ]
+        },
+        {
+          title: 'D',
+          list: [
+            {
+              id: 6,
+              title: '大华',
+              src: ''
+            },
+            {
+              id: 7,
+              title: '钓鱼台',
+              src: ''
+            },
+            {
+              id: 8,
+              title: '大前门',
+              src: ''
+            }
+          ]
+        }
+      ]
     }
   },
 
@@ -102,6 +168,19 @@ export default {
         title: '芙蓉王(硬细支)'
       })
       this.newList = arr
+    },
+    scroll (e) {
+      var _this = this
+      var query = wx.createSelectorQuery()
+      query.select('.navagitor').boundingClientRect()
+      query.exec(function (res) {
+        // console.log(res)
+        if (res[0].top < 10) {
+          _this.navagitorShow = true
+        } else {
+          _this.navagitorShow = false
+        }
+      })
     }
   },
   created () {
@@ -112,6 +191,9 @@ export default {
 
 <style lang="less" scoped>
   @padding: 32rpx;
+  .scroll-box {
+    height: 100vh;
+  }
   .header {
     padding: 20rpx @padding;
     background-color: #fff;
@@ -177,7 +259,18 @@ export default {
 
     }
   }
-
+  .navagitor {
+    position: relative;
+    .navagitor-menu {
+      color: lighten(blue, 10%);
+      text-shadow: 1px 1px 1px fade(blue, 30%);
+      font-size: 32rpx;
+      position: fixed;
+      z-index: 99;
+      top: 80rpx;
+      right: 40rpx;
+    }
+  }
   .shop-list {
     display: flex;
     align-items: center;
